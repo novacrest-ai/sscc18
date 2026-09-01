@@ -1,0 +1,59 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sscc18"
+version = "0.1.0"
+description = "Validate, repair, decode and generate GS1 SSCC-18 codes. Checks math and format, never registration."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Novacrest", email = "hello@novacrest.ai" }]
+requires-python = ">=3.9"
+dependencies = []
+keywords = [
+  "sscc",
+  "sscc-18",
+  "gs1",
+  "gs1-128",
+  "check-digit",
+  "barcode",
+  "code128",
+  "pallet-label",
+  "logistics",
+  "supply-chain",
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Manufacturing",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Office/Business",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Typing :: Typed",
+]
+
+[project.urls]
+Homepage = "https://binlogic.io/free-tools/sscc-label-generator"
+Repository = "https://github.com/novacrest-ai/sscc18"
+Documentation = "https://github.com/novacrest-ai/sscc18#readme"
+
+[project.scripts]
+sscc = "sscc.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/sscc"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/sscc", "tests", "README.md", "LICENSE", "pyproject.toml"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
